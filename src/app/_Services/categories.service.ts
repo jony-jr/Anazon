@@ -1,3 +1,4 @@
+'use server'
 import { categoryType } from "../_interfaces/products.type";
 
 export async function getAllCategories ():Promise<categoryType[]|null>{

@@ -1,3 +1,4 @@
+'use server'
 import { productType } from "../_interfaces/products.type";
 
 export async function getAllProducts(): Promise<productType[] | null> {

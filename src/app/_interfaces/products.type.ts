@@ -49,7 +49,8 @@ type itemsType = {
     price: number,
     product: productType
 }
-// 
+
+// shipping Address
 export type shippingAddressType = {
     details: string,
     phone: string,
@@ -57,7 +58,7 @@ export type shippingAddressType = {
 
 }
 
-// WishList Type
+/// WishList Type
 export type wishListType={
     count:number,
     data:productType[]
