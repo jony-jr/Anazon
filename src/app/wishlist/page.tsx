@@ -49,7 +49,7 @@ export default async function WishList() {
               </div>
               <div className="grid md:grid-cols-12  gap-4 mt-5">
                 {cartItems?.map(({ _id, imageCover, title, price, ratingsAverage }) => (
-                  <div className="md:col-span-4  flex flex-col gap-3  ">
+                  <div key={_id} className="md:col-span-4  flex flex-col gap-3  ">
                     {/* products Card */}
 
                     <div

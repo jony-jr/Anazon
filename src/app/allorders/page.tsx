@@ -64,6 +64,7 @@ export default async function AllOrders() {
                           fill
                           alt={'logo'}
                           sizes="(max-width: 768px) 100vw, 50vw"
+                          draggable={'false'}
                         />
                       </figure>
                       {/* item Details */}
@@ -78,11 +79,11 @@ export default async function AllOrders() {
                           </p>
                         </div>
                         {/* Oder date & View Detail Btn */}
-                        <div className="flex flex-col md:gap-3">
+                        <div className="flex flex-col md:gap-3 justify-center md:items-end">
                           <p className="text-sm md:text-xl text-amber-600 font-bold md:font-extrabold">
                             Total: {order.totalOrderPrice}$
                           </p>
-                          <ViewOrderDetailsBtn  userOders={order}/>
+                          <ViewOrderDetailsBtn   userOders={order}/>
                         </div>
                       </div>
                     </div>

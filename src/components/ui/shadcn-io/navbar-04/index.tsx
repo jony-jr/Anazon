@@ -107,10 +107,6 @@ const defaultNavigationLinks: Navbar04NavItem[] = [
     label: "About",
   },
   {
-    href: "/products",
-    label: "Products",
-  },
-  {
     href: "/brands",
     label: "Brands",
   },
@@ -166,7 +162,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
         resizeObserver.disconnect();
       };
     }, []);
-    
+
 
     // const [initialCount, setInitialCount] = useState(0);
     // useEffect(function (){
@@ -174,7 +170,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
     //   console.log("🚀 ~ cartCount:", cartCount)
     //   setInitialCount(cartCount)
     // },[])
-    
+
 
     const combinedRef = React.useCallback(
       (node: HTMLElement | null) => {
@@ -188,7 +184,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
       [ref]
     );
 
-    const {cartCount: contextCartCount} = useContext(cartContext);
+    const { cartCount: contextCartCount } = useContext(cartContext);
 
     const sessionObj = useSession();
     // console.log("🚀 ~ sessionObj:", sessionObj)
@@ -351,7 +347,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
                     <GiShoppingCart size={21} />
 
                     <span className="font-light text-sm select-none absolute top-0  -translate-y-3 -translate-x-1 left-1/2 text-amber-600 ">
-                      {contextCartCount!=0 ? contextCartCount : " "  }
+                      {contextCartCount != 0 ? contextCartCount : " "}
                     </span>
                   </Link>
                 </li>

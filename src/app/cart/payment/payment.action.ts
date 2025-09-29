@@ -12,8 +12,9 @@ export async function createCashOrder(cartId: string | null, shippingAddress: sh
         const res = await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/${cartId}`, { shippingAddress }, {
             headers: { token }
         })
-        console.log("🚀 ~ createCashOrder ~ res:", res.data)
+        // console.log("🚀 ~ createCashOrder ~ res:", res.data)
         revalidatePath('/cart');
+        revalidatePath('/allorders');
         return true;
     } catch (error) {
 
@@ -29,7 +30,7 @@ export async function createCheckoutSession(cartId: string | null, shippingAddre
             headers: { token },
             params: { url: process.env.MY_DOMAIN }
         })
-        console.log("🚀 ~ createCheckoutSession ~ res:", res.data)
+        // console.log("🚀 ~ createCheckoutSession ~ res:", res.data)
         if(res.data.status ==="success"){
             const paymentWayURL = res.data.session.url
             return paymentWayURL;

@@ -12,7 +12,7 @@ export async function getUserCart(): Promise<cartItemType | null> {
          // next:{tags:['cartCount']}
       });
       const finalRes:cartItemType = await res.json();
-      console.log("🚀 ~ getUserCart ~ finalRes:", finalRes)
+      // console.log("🚀 ~ getUserCart ~ finalRes:", finalRes)
       return finalRes;
       
       

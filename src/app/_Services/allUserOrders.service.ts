@@ -8,9 +8,9 @@ export async function getUserOrders(): Promise<OrderType[] | null> {
     const { id }: { id: string } = jwtDecode(token)
     console.log("🚀 ~ getUserOrders ~ id:", id)
     try {
-        const res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`, { cache: "force-cache" });
+        const res = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`);
         const finalRes = await res.json();
-        console.log("🚀 ~ getUserOrders ~ finalRes:", finalRes)
+        // console.log("🚀 ~ getUserOrders ~ finalRes:", finalRes)
         return finalRes;
     } catch (error) {
         console.log(error);

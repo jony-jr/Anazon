@@ -2,6 +2,7 @@
 import { CartItem, OrderType } from '@/app/_interfaces/allOrders.type'
 import React from 'react'
 import { X } from "lucide-react"
+import * as motion from "motion/react-client";
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -32,8 +33,15 @@ export default function ViewOrderDetailsBtn({ userOders }: { userOders: OrderTyp
         <div className="">
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button variant={null} className='p-0 rounded-3xl'><OrangeBtn myStyles='w-full   text-xs md:text-sm ' name='View details' />
-                    </Button>
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <Button variant={'default'} className={`flex items-center justify-center cursor-pointer shadow  py-2 rounded-3xl text-sm capitalize bg-gradient-to-b from-amber-500 to-amber-700 text-white `}
+                        >
+                            view details
+                        </Button>
+                    </motion.div>
 
                 </DialogTrigger>
                 <DialogContent className="mx-auto max-w-xs  sm:max-w-lg  lg:max-w-3xl xl:max-w-6xl" showCloseButton={true}>
@@ -80,7 +88,7 @@ export default function ViewOrderDetailsBtn({ userOders }: { userOders: OrderTyp
                                 <CardContent>
                                     <ScrollArea className=" h-[100]  mx-auto w-full rounded-md  ">
                                         {cartItems?.map(({ _id, price, count, product }) => (
-                                            <div className=" flex flex-col gap-1  ">
+                                            <div key={_id} className=" flex flex-col gap-1  ">
                                                 {/* products Card */}
 
                                                 <div

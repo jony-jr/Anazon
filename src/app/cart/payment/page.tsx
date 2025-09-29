@@ -48,9 +48,9 @@ export default function payment() {
     }, [])
 
     async function handlePaymentFormSub(data: paymentType) {
+        setIsLoading(true)
         const { type, ...shippingAddress } = data
         // console.log("🚀 ~ handlePaymentFormSub ~ type:", type)
-        setIsLoading(true)
         // console.log("🚀 ~ handlePaymentFormSub ~ shippingAddress:", shippingAddress)
         if (type === "cash") {
             console.log("🚀 ~ handlePaymentFormSub ~ caaaaaaaaash:", type)
@@ -75,7 +75,7 @@ export default function payment() {
         }
         else if (type === "visa") {
             // console.log("🚀 ~ handlePaymentFormSub ~ viiiiiiiisa:", type)
-            const paymentURL:string = await createCheckoutSession(cartId, shippingAddress)
+            const paymentURL: string = await createCheckoutSession(cartId, shippingAddress)
             if (paymentURL) {
                 setIsLoading(false)
                 window.location.replace(paymentURL)
@@ -171,7 +171,7 @@ export default function payment() {
                         </FormItem>
                     )}
                 />
-                <Button className={`${isLoading ? " cursor-not-allowed " : " cursor-pointer "}   `} type="submit" disabled={isLoading}>
+                <Button className={` ${isLoading ? " cursor-not-allowed " : " cursor-pointer "}   `} type="submit" disabled={isLoading}>
                     Make Order
                 </Button>
             </form>
