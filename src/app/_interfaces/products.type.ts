@@ -1,3 +1,16 @@
+export type metaProductType = {
+    results: number,
+    metadata: PagemetaDataType,
+    data: productType[]
+}
+
+export type PagemetaDataType = {
+    currentPage: number,
+    numberOfPages: number,
+    limit: number,
+    prevPage: number,
+    nextPage: number,
+}
 export type productType = {
     _id: string,
     title: string,
@@ -59,8 +72,8 @@ export type shippingAddressType = {
 }
 
 /// WishList Type
-export type wishListType={
-    count:number,
-    data:productType[]
+export type wishListType = {
+    count: number,
+    data: productType[]
 }
 

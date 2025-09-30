@@ -7,6 +7,7 @@ import { GiShoppingCart } from "react-icons/gi";
 import { FaRegHeart } from "react-icons/fa";
 import AddToCartBtn from "@/app/_Components/Btn/AddToCartBtn";
 import AddToWishBtn from "@/app/wishlist/_wishListBtn/AddToWishBtn";
+import MainSlider from "@/app/(Home)/_Sliders/MainSlider/MainSlider";
 
 type propsType = {
   params: { id: string };
@@ -18,20 +19,17 @@ export default async function productDetails(props: propsType) {
   }
   return (
     <main>
-      <div className="container mx-auto grid md:grid-cols-2 gap-5 px-15 ">
+      <div className="container mx-auto grid md:grid-cols-2 gap-5  px-15 ">
         {/* image */}
         <div >
-          <div className="relative h-60 md:h-100">
-            <Image src={product.imageCover} fill alt={product.title} />
-          </div>
-          <div className="my-5 grid grid-cols-4 text-center gap-5 items-center justify-end px-10">
-            {product.images.map(img=> <Image key={img} src={img} width={100} height={100} className="self-center rounded-xl text-center" alt={product.title} />)}
+          <div className="relative h-60 md:h-100 ">
+            <MainSlider imgsList={product.images} imgAlt={product.title} />
           </div>
         </div>
         {/* content */}
-        <div className="mt-5" >
+        <div className="mt-5 flex flex-col justify-between " >
           {/* Title */}
-          <h2 className="text-2xl sm:text-4xl lg:text-6xl text-gray-800">
+          <h2 className="text-2xl sm:text-4xl  text-gray-800">
             {product?.title}
           </h2>
           {/* RAting */}
@@ -60,7 +58,7 @@ export default async function productDetails(props: propsType) {
                     {Math.floor(
                       ((product.price - product.priceAfterDiscount) /
                         product.price) *
-                        100
+                      100
                     )}
                     % off
                   </span>
@@ -79,9 +77,9 @@ export default async function productDetails(props: propsType) {
           <h3 className="text-gray-600 my-3">{product.description}</h3>
           {/* Counter & Add To cart & heart */}
           <div className="flex gap-3 items-center">
-            
-            <AddToCartBtn productId={product._id} isSingle className="w-50 sm:w-3xs  lg:w-sm"/>
-            <AddToWishBtn productId={product._id}/>
+
+            <AddToCartBtn productId={product._id} isSingle className="w-50 sm:w-3xs  lg:w-sm" />
+            <AddToWishBtn productId={product._id} />
           </div>
           {/* info */}
           <div className="grid lg:grid-cols-2 items-center justify-between my-5">

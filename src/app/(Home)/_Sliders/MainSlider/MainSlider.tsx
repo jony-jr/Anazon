@@ -10,70 +10,40 @@ type swiperType = {
   spaceBetween?: number;
   slidesPerView?: number;
   isMain?: boolean;
+  imgAlt?: string;
 };
 
-import sliderBg1 from "@images/sliderBg1.jpg";
-import sliderBg2 from "@images/sliderBg2.jpg";
-import sliderBg3 from "@images/sliderBg3.jpg";
-import sliderBg4 from "@images/sliderBg4.jpg";
-import sliderBg5 from "@images/sliderBg5.jpg";
-import sliderBg6 from "@images/sliderBg6.jpg";
-import sliderBg7 from "@images/sliderBg7.jpg";
-import blog1 from "@images/blog1.jpg";
-import blog2 from "@images/blog2.jpg";
-const imgsList: string[] = [
-  sliderBg1.src,
-  sliderBg2.src,
-  sliderBg3.src,
-  sliderBg4.src,
-  sliderBg5.src,
-  sliderBg6.src,
-  sliderBg7.src,
-];
-export default function MainSlider() {
+
+export default function MainSlider({ imgsList, isMain = false, slidesPerView=1, imgAlt = "anazon products" }: swiperType) {
   return (
-    <div className="md:grid grid-cols-4 h-[200] md:h-[400] gap-1 px-5 rounded-2xl ">
-      <div className="col-span-3 rounded-2xl">
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          modules={[Autoplay]}
-          loop
-          autoplay={{
-            delay: 10000,
-            disableOnInteraction: false, // Continue autoplay after user swipe
-            pauseOnMouseEnter: true, // Pause on hover (optional)
-          }}
-          className={"rounded-l-2xl"}
-        >
-          {imgsList.map((src) => (
-            <SwiperSlide key={src}>
-              <figure className="relative h-[200] md:h-[400]">
-                <Image
-                  fill
-                  src={src}
-                  alt="anazon products"
-                  className="select-none rounded-2xl md:rounded-l-2xl md:rounded-r-none"
-                />
-              </figure>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      <div className=" hidden md:block col-span-1 rounded-2xl ">
-        <Image
-          draggable={"false"}
-          src={blog1}
-          alt="blog1"
-          className="select-none w-full h-[100] md:h-[200] rounded-tr-2xl"
-        />
-        <Image
-          draggable={"false"}
-          src={blog2}
-          alt="blog2"
-          className="select-none w-full h-[100] md:h-[200] rounded-br-2xl"
-        />
-      </div>
-    </div>
+    <Swiper
+      spaceBetween={20}
+      slidesPerView={slidesPerView}
+      modules={[Autoplay]}
+      loop
+      autoplay={{
+        delay: 10000,
+        disableOnInteraction: false, // Continue autoplay after user swipe
+        pauseOnMouseEnter: true, // Pause on hover (optional)
+      }}
+      className={`${isMain && 'rounded-l-2xl'} `}
+    >
+      {imgsList.map((src) => (
+        <SwiperSlide key={src}>
+          <figure className="relative h-[200] md:h-[400]">
+            <Image
+              fill
+              src={src}
+              alt={imgAlt}
+              className={`select-none ${isMain && ' rounded-2xl md:rounded-l-2xl md:rounded-r-none'} `}
+              sizes="(max-width: 768px) 100vw, 50vw" // Adjust based on your layout
+            />
+          </figure>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+
+
+
   );
 }

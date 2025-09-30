@@ -13,6 +13,7 @@ import { WishListContext } from "../Contexts/WishListContext";
 export default function ProductCard({ product }: { product: productType}) {
   const { wishListIdes } = useContext(WishListContext);
   const [isRedheart, setIsRedheart] = useState<boolean>(false);
+  
   useEffect(() => {
     setIsRedheart(wishListIdes.includes(product._id));
   }, [wishListIdes, product._id]);
@@ -22,13 +23,13 @@ export default function ProductCard({ product }: { product: productType}) {
       whileHover={{ scale: 1.02, transitionDuration: 0.5 }}
       className="w-full max-w-sm relative bg-white border border-gray-200 rounded-2xl shadow-sm dark:bg-gray-800 dark:border-gray-700"
     >
-      {product.priceAfterDiscount && (
+      {product.priceAfterDiscount ?(
         <div className="select-none bg-amber-600 px-7 absolute z-10 py-1 rounded-br-3xl rounded-tl-2xl w-fit">
           <p className="text-sm text-white">
             {Math.floor(((product.price - product.priceAfterDiscount) / product.price) * 100)}%
           </p>
         </div>
-      )}
+      ) : ' '}
       <Link scroll href={`products/${product._id}`}>
         <div className="h-80 md:h-60 relative">
           <Image
