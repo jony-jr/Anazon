@@ -19,13 +19,13 @@ export default async function productDetails(props: propsType) {
   }
   return (
     <main>
-      <div className="container mx-auto grid md:grid-cols-2 gap-5  px-15 ">
+      <div className="container mx-auto grid md:grid-cols-2 gap-5  px-10 md:px-15 ">
         {/* image */}
-        <div >
-          <div className="relative h-60 md:h-100 ">
-            <MainSlider imgsList={product.images} imgAlt={product.title} />
-          </div>
+
+        <div className="overflow-hidden ">
+          <MainSlider imgsList={product.images} imgAlt={product.title} />
         </div>
+
         {/* content */}
         <div className="mt-5 flex flex-col justify-between " >
           {/* Title */}

@@ -14,10 +14,10 @@ type swiperType = {
 };
 
 
-export default function MainSlider({ imgsList, isMain = false, slidesPerView=1, imgAlt = "anazon products" }: swiperType) {
+export default function MainSlider({ imgsList, isMain = false,spaceBetween=20, slidesPerView=1, imgAlt = "anazon products" }: swiperType) {
   return (
     <Swiper
-      spaceBetween={20}
+      spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
       modules={[Autoplay]}
       loop
@@ -26,7 +26,7 @@ export default function MainSlider({ imgsList, isMain = false, slidesPerView=1, 
         disableOnInteraction: false, // Continue autoplay after user swipe
         pauseOnMouseEnter: true, // Pause on hover (optional)
       }}
-      className={`${isMain && 'rounded-l-2xl'} `}
+      className={`${isMain&&'rounded-l-2xl'} `}
     >
       {imgsList.map((src) => (
         <SwiperSlide key={src}>
