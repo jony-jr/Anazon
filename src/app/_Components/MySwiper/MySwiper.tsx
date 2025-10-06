@@ -43,7 +43,7 @@ export default ({
     >
       {categoryList.map((cat) => (
         <SwiperSlide key={cat._id} className="">
-          <Link scroll href={`/categories/${cat._id}`}>
+          <Link scroll={true} href={`/categories/${cat._id}`}>
             <figure className="relative h-[100] md:h-[180]">
               <Image
                 fill

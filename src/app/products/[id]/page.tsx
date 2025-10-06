@@ -86,6 +86,11 @@ export default async function productDetails(props: propsType) {
           <div className="grid lg:grid-cols-2 items-center justify-between my-5">
             <p className="text-amber-700 capitalize"> <span className="text-gray-400">Type:</span> {product.subcategory[0].name}</p>
             <p className="capitalize text-amber-700"><span className="text-gray-400">Stock:</span> {product.quantity} items in stock </p>
+            <div className="capitalize text-amber-700"><span className="text-gray-400">Category: </span>
+              <Link href={`/categories/${product.category._id}`} className="hover:underline">
+                {product.category.name}
+              </Link>
+            </div>
             <div className="capitalize text-amber-700"><span className="text-gray-400">Brand: </span>
               <Link href={`/brands/${product.brand._id}`} className="hover:underline">
                 {product.brand.name}

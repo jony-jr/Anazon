@@ -43,9 +43,14 @@ export default function ProductCard({ product }: { product: productType }) {
         </div>
       </Link>
       <div className="px-5 py-5">
-        <Link href={`/brands/${product.brand._id}`} className="hover:underline text-gray-400 capitalize text-sm">
-          {product.brand.name}
-        </Link>
+        <div className="flex justify-between items-center ">
+          <Link href={`/categories/${product.category._id}`} className="hover:underline text-gray-400 capitalize text-sm line-clamp-1">
+            {product.category.name}
+          </Link>
+          <Link href={`/brands/${product.brand._id}`} className="hover:underline text-gray-400 capitalize text-sm line-clamp-1">
+            {product.brand.name}
+          </Link>
+        </div>
         <Link scroll href={`/products/${product._id}`}>
           <h5 className="line-clamp-2 cursor-pointer lg:h-13 text-lg font-semibold tracking-tight text-gray-800 dark:text-white">
             {product.title}

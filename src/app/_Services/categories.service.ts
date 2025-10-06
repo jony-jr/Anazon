@@ -1,5 +1,5 @@
 'use server'
-import { categoryType } from "../_interfaces/products.type";
+import { categoryType, productType } from "../_interfaces/products.type";
 
 export async function getAllCategories ():Promise<categoryType[]|null>{
    try {
@@ -20,5 +20,15 @@ export async function getSpecificCategory (id:string):Promise<categoryType|null>
    } catch (error) {
     console.log(error);
     return null
+   }
+}
+export async function getAllCategoryProducts(id:string): Promise<productType[] | null> {
+   try {
+      const res = await fetch(`https://ecommerce.routemisr.com/api/v1/products?category[in]=${id}`, { cache: "force-cache" });
+      const finalRes = await res.json();
+      return finalRes.data;
+   } catch (error) {
+      console.log(error);
+      return null
    }
 }
