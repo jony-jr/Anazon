@@ -26,10 +26,10 @@ export default async function WishList() {
               </h1>
               <p className=" select-none text-xl font-sans text-blue-950 mt-1">No items saved yet. Start exploring!</p>
               <figure className="my-5 select-none flex justify-center items-center">
-                <Image src={wishLogo} width={300} className="select-none" alt='cart logo' />
+                <Image src={wishLogo} width={300} draggable={'false'} className="select-none" alt='cart logo' />
               </figure>
               <Link scroll href='/'>
-                <NotFoundBtn  name="PICK A WISH" />
+                <NotFoundBtn name="PICK A WISH" />
               </Link>
             </div>
           </>

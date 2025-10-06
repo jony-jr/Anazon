@@ -14,7 +14,7 @@ export default function NextPageBtn({ metaInfo }: { metaInfo: PagemetaDataType }
     async function handleNextPage() {
         if (currentPage <= numberOfPages) {
             setisLoading(true)
-            router.push(`/?page=${nextPage}`);
+            router.push(`?page=${nextPage}`);
             setisLoading(false)
         }
 
@@ -23,7 +23,7 @@ export default function NextPageBtn({ metaInfo }: { metaInfo: PagemetaDataType }
     async function handlePrevPage() {
         if (currentPage > 1) {
             setisLoading(true)
-            router.push(`/?page=${prevPage}`);
+            router.push(`?page=${prevPage}`);
             setisLoading(false)
         }
     }

@@ -8,6 +8,10 @@ export async function getAuthUserToken(): Promise<string> {
         cookie.get('__Secure-next-auth.session-token')?.value
     const tkn = await decode({ token: sessionToken, secret: process.env.NEXTAUTH_SECRET || '' })
     // console.log("🚀 ~ getAuthUserToken ~ tkn:", tkn)
-    const userToken: string | null = tkn?.userTKN
-    return userToken;
+    if (tkn === null){
+        return ''
+    }else{
+        const userToken = tkn?.userTKN
+        return userToken as string;
+    }
 }

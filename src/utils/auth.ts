@@ -45,7 +45,7 @@ export const authOptions: NextAuthOptions = {
     //after success login and each navigation
     jwt(params) {
       if (params.user) {
-        params.token.userTKN = params.user.tkn
+        params.token.userTKN = params.user.tkn 
       }
       return params.token;
     },

@@ -77,3 +77,9 @@ export type wishListType = {
     data: productType[]
 }
 
+// 
+export type metaBrandType = {
+    results: number,
+    metadata: PagemetaDataType,
+    data: brandType[]
+}

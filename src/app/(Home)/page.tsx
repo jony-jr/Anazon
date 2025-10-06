@@ -79,10 +79,11 @@ export default async function Home({ searchParams }: { searchParams: { page?: st
           <ProductCard key={product._id} product={product} />
         ))}
 
-        <div className="my-3 mx-auto">
-        </div>
+
       </div>
-      {PagemetaData && <NextPageBtn metaInfo={PagemetaData} />}
+      <div className="my-10">
+        {PagemetaData && <NextPageBtn metaInfo={PagemetaData} />}
+      </div>
     </main>
   );
 }

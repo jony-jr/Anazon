@@ -8,8 +8,9 @@ import { FaRegHeart } from "react-icons/fa";
 import AddToCartBtn from "@/app/_Components/Btn/AddToCartBtn";
 import AddToWishBtn from "@/app/wishlist/_wishListBtn/AddToWishBtn";
 import MainSlider from "@/app/(Home)/_Sliders/MainSlider/MainSlider";
+import Link from "next/link";
 
-type propsType = {
+export type propsType = {
   params: { id: string };
 };
 export default async function productDetails(props: propsType) {
@@ -85,6 +86,11 @@ export default async function productDetails(props: propsType) {
           <div className="grid lg:grid-cols-2 items-center justify-between my-5">
             <p className="text-amber-700 capitalize"> <span className="text-gray-400">Type:</span> {product.subcategory[0].name}</p>
             <p className="capitalize text-amber-700"><span className="text-gray-400">Stock:</span> {product.quantity} items in stock </p>
+            <div className="capitalize text-amber-700"><span className="text-gray-400">Brand: </span>
+              <Link href={`/brands/${product.brand._id}`} className="hover:underline">
+                {product.brand.name}
+              </Link>
+            </div>
           </div>
         </div>
       </div>
