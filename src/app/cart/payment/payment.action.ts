@@ -15,6 +15,7 @@ export async function createCashOrder(cartId: string | null, shippingAddress: sh
         // console.log("🚀 ~ createCashOrder ~ res:", res.data)
         revalidatePath('/cart');
         revalidatePath('/allorders');
+        revalidatePath('/admin');
         return true;
     } catch (error) {
 

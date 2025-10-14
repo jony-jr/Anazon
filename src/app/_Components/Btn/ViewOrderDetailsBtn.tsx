@@ -60,10 +60,10 @@ export default function ViewOrderDetailsBtn({ userOders }: { userOders: OrderTyp
                                     <CardTitle className='border-b-1 pb-4 text-blue-950 select-none'>Shipping Information</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className='text-gray-600 flex gap-1 flex-wrap'><span className='text-blue-950 font-semibold '>Name:</span> {user.name}</p>
-                                    <p className='text-gray-600 flex gap-1  flex-wrap '><span className='text-blue-950 font-semibold  '>Email:</span> {user.email}</p>
-                                    <p className='text-gray-600 flex gap-1  flex-wrap'><span className='text-blue-950 font-semibold '>Phone:</span> {shippingAddress.phone}</p>
-                                    <p className='text-gray-600 flex gap-1  flex-wrap'><span className='text-blue-950 font-semibold '>City:</span> {shippingAddress.city}</p>
+                                    <p className='text-gray-600 flex gap-1 flex-wrap'><span className='text-blue-950 font-semibold '>Name:</span> {user?.name}</p>
+                                    <p className='text-gray-600 flex gap-1  flex-wrap '><span className='text-blue-950 font-semibold  '>Email:</span> {user?.email}</p>
+                                    <p className='text-gray-600 flex gap-1  flex-wrap'><span className='text-blue-950 font-semibold '>Phone:</span> {shippingAddress?.phone}</p>
+                                    <p className='text-gray-600 flex gap-1  flex-wrap'><span className='text-blue-950 font-semibold '>City:</span> {shippingAddress?.city}</p>
 
                                 </CardContent>
                             </Card>

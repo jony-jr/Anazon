@@ -1,5 +1,10 @@
-import { productType, shippingAddressType } from "./products.type"
+import { PagemetaDataType, productType, shippingAddressType } from "./products.type"
 
+export interface OrderAllDetailsType{
+  results:number,
+  metaDeta:PagemetaDataType,
+  data:OrderType[]
+}
 export interface OrderType {
   shippingAddress: shippingAddressType
   taxPrice: number

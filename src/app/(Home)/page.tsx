@@ -37,7 +37,7 @@ export default async function Home({ searchParams }: { searchParams: { page?: st
 
 
   return (
-    <main className="container mx-auto  px-10 ">
+    <main className="container mx-auto  md:px-10 ">
       <div className="md:grid grid-cols-4 h-[200] md:h-[400] gap-1 px-5 rounded-2xl ">
 
         <div className="col-span-3 rounded-2xl">

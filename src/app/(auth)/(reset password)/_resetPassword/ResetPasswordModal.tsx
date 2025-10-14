@@ -83,7 +83,7 @@ export default function ResetPasswordModal({ open, onOpenChange }: VerifyCodeMod
     return (
         <div className="w-full p-6 flex justify-center">
             <Dialog open={open} onOpenChange={onOpenChange}>
-                <DialogContent className="sm:max-w-md" showCloseButton={true} >
+                <DialogContent className="sm:max-w-md" showCloseButton={true} onInteractOutside={(e) => { e.preventDefault(); }} >
                     <DialogHeader>
                         <DialogTitle>Update your data</DialogTitle>
                     </DialogHeader>

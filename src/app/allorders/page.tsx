@@ -7,6 +7,7 @@ import NotFoundBtn from "../_Components/Btn/OrangeBtn"; 1
 import Link from "next/link";
 import ViewOrderDetailsBtn from "../_Components/Btn/ViewOrderDetailsBtn";
 import imgLogo from '@images/icon.png'
+import OrderCard from "../_Components/OrderCard/OrderCard";
 
 export default async function AllOrders() {
   const userOrders = await getUserOrders()
@@ -15,7 +16,7 @@ export default async function AllOrders() {
   return (
     <>
       <section className="bg-gray-200 min-h-dvh -mt-7 pt-5 pb-5">
-        <div className="container mx-auto px-10">
+        <div className="container mx-auto px-5 md:px-10">
           {numberOfOrders === 0 && (<>
             <div className="min-h-dvh -mt-10 flex flex-col justify-center items-center">
               <h1 className="select-none text-4xl md:text-6xl font-extrabold text-blue-950">
@@ -52,41 +53,7 @@ export default async function AllOrders() {
                   {/* products Card */}
                   {reversedUserOrders?.map( order => (
 
-                    <div
-                      key={order._id}
-                      className="relative grid grid-cols-12 gap-3  bg-white rounded-2xl px-5 py-5 pt-7"
-                    >
-
-                      {/* item image */}
-                      <figure className="relative col-span-3 md:col-span-2 max-h-30  xl:col-span-1 ">
-                        <Image
-                          src={imgLogo}
-                          fill
-                          alt={'logo'}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          draggable={'false'}
-                        />
-                      </figure>
-                      {/* item Details */}
-                      <div className="md:flex  justify-between md:col-span-10 items-center col-span-9 xl:col-span-11">
-                        {/* Order number & Total price */}
-                        <div className="flex flex-col md:gap-2  ">
-                          <p className="text-sm md:text-xl text-blue-950 font-semibold">
-                            Order number: #ANAZON{order.id}
-                          </p>
-                          <p className="text-sm md:text-xl text-gray-600">
-                            Order date: {order.createdAt.split("T", 1)}
-                          </p>
-                        </div>
-                        {/* Oder date & View Detail Btn */}
-                        <div className="flex flex-col md:gap-3 justify-center md:items-end">
-                          <p className="text-sm md:text-xl text-amber-600 font-bold md:font-extrabold">
-                            Total: {order.totalOrderPrice}$
-                          </p>
-                          <ViewOrderDetailsBtn   userOders={order}/>
-                        </div>
-                      </div>
-                    </div>
+                   <OrderCard key={order._id} order={order}/>
 
                   ))}
                 </div>
