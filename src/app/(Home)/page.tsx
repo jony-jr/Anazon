@@ -74,7 +74,7 @@ export default async function Home({ searchParams }: { searchParams: { page?: st
           <CategorySliderLazy />
         </Suspense>
       </div>
-      <div className="p-5 pb-0 grid sm:grid-cols-3 xl:grid-cols-5 gap-5">
+      <div className="p-5 pb-0  grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-5">
         {allProducts?.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

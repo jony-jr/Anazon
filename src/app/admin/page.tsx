@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from "react";
-import { Loader2, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"

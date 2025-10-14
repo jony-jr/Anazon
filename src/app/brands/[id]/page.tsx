@@ -10,7 +10,7 @@ export default async function BrandDetails(props: propsType) {
   // console.log("🚀 ~ BrandDetails ~ params:", props.params)
   const allBrandBroducts = await getBrandProducts(props.params.id)
   return (
-    <section className='container px-10 mx-auto'>
+    <section className='container md:px-10 mx-auto'>
       {allBrandBroducts?.length === 0 && (<>
         <div className="min-h-dvh -mt-20 flex flex-col justify-center items-center">
           <h1 className="select-none text-xl font-semibold md:text-4xl lg:text-6xl md:font-extrabold text-blue-950">
@@ -23,10 +23,10 @@ export default async function BrandDetails(props: propsType) {
       </>
       )}
       {allBrandBroducts?.length != 0 && (<>
-        <h1 className="px-5 container mx-auto select-none text-5xl font-semibold md:text-4xl lg:text-6xl md:font-extrabold text-blue-950">
+        <h1 className="px-5 container mx-auto select-none text-center md:text-start  font-semibold text-4xl lg:text-6xl md:font-extrabold text-blue-950">
           {allBrandBroducts[0]?.brand.name}
         </h1>
-        <div className="p-5 pb-0 grid sm:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="p-5 pb-0 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-5">
           {allBrandBroducts?.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
