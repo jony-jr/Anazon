@@ -188,7 +188,7 @@ export const Navbar04 = React.forwardRef<HTMLElement, Navbar04Props>(
 
     const sessionObj = useSession();
     // console.log("🚀 ~ sessionObj:", sessionObj)
-    const { data, status } = sessionObj;
+    const {  status } = sessionObj;
     //  update Login & cart btn
     const [isLoading, setisLoading] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(true);
